@@ -1,13 +1,20 @@
 use Mix.Config
+database_url = System.get_env("DATABASE_URL")
 
 # Configure your database
 config :cmdr, Cmdr.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "cmdr_dev",
-  hostname: "localhost",
+  url: database_url,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
+
+# Configure your database
+# config :cmdr, Cmdr.Repo,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "cmdr_dev",
+#   hostname: "localhost",
+#   show_sensitive_data_on_connection_error: true,
+#   pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
